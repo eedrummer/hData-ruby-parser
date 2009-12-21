@@ -1,6 +1,6 @@
-require File.expand_path(File.dirname(__FILE__) + '/../lib/hdata-parser')
+require 'vendor/gems/environment'
 
-require 'rubygems'
+Bundler.require_env :test
+
+require 'hdata-parser'
 require 'test/unit'
-require 'shoulda'
-require 'fakeweb'

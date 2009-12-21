@@ -8,6 +8,7 @@ class AdvanceDirectiveTest < Test::Unit::TestCase
     
     should 'create an instance from XML' do
       ad = AdvanceDirective.from_xml(@doc)
+      assert_equal '304251008', ad.type.code
       assert_equal 'Resuscitation', ad.free_text_type
     end
   end

@@ -20,4 +20,19 @@ class CoreTest < Test::Unit::TestCase
       assert_nil cv
     end
   end
+  
+  context 'A DateRange' do
+    should 'create an instance from XML' do
+      mock_date_range_element = {'high' => '2007-05-04T18:13:51.0Z',
+                                 'low' => '2006-05-04T18:13:51.0Z'}
+      dr = DateRange.from_xml(mock_date_range_element)
+      assert_equal 2007, dr.high.year
+      assert_equal 2006, dr.low.year
+    end
+    
+    should 'return nil when passed nil to from_xml' do
+      dr = DateRange.from_xml(nil)
+      assert_nil dr
+    end
+  end
 end

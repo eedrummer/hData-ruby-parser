@@ -1,5 +1,6 @@
 gem 'nokogiri'
 gem 'builder'
+gem 'activesupport'
 
 only :test do
   gem 'thoughtbot-shoulda', :require_as => 'shoulda'

@@ -49,10 +49,10 @@ class Name < CoreHelper
   
   def self.from_xml(element)
     return_if_element_present(element, Name.new) do |name|
-      name.title = element.at_xpath('core:title').text
+      name.title = element.at_xpath('core:title').try(:text)
       name.given = element.xpath('core:given').map {|given| given.text}
-      name.lastname = element.at_xpath('core:lastname').text
-      name.suffix = element.at_xpath('core:suffix').text
+      name.lastname = element.at_xpath('core:lastname').try(:text)
+      name.suffix = element.at_xpath('core:suffix').try(:text)
     end
   end
 end

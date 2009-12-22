@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:name xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    <core:title>Dr.</core:title>
+    <core:given>Steve</core:given>
+    <core:given>James</core:given>
+    <core:lastname>Jones</core:lastname>
+    <core:suffix>III</core:suffix>
+</core:name>

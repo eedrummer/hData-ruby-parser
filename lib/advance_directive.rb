@@ -8,7 +8,7 @@ class AdvanceDirective < SectionBase
     ad = AdvanceDirective.new
     ad.type = CodedValue.from_xml(root.at_xpath('ad:type'))
     ad.free_text_type = (root.at_xpath('ad:freeTextType')).text
-    
+    ad.effective_date = DateRange.from_xml(root.at_xpath('ad:effectiveDate'))
     ad
   end
 end

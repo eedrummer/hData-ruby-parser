@@ -41,3 +41,6 @@ class DateRange
     end
   end
 end
+
+class Name
+end

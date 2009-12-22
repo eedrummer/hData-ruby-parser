@@ -56,3 +56,17 @@ class Name < CoreHelper
     end
   end
 end
+
+class Address < CoreHelper
+  attr_accessor :street_address, :city, :state_or_province, :zip, :country
+  
+  def self.from_xml(element)
+    return_if_element_present(element, Address.new) do |address|
+      address.street_address = element.xpath('core:streetAddress').map {|street_address| street_address.text}
+      address.city = element.at_xpath('core:city').try(:text)
+      address.state_or_province = element.at_xpath('core:stateOrProvince').try(:text)
+      address.zip = element.at_xpath('core:zip').try(:text)
+      address.country = element.at_xpath('core:country').try(:text)
+    end
+  end
+end

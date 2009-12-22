@@ -52,4 +52,22 @@ class CoreTest < Test::Unit::TestCase
       assert_nil name
     end
   end
+  
+  context 'An Address' do
+    should 'create an instance from XML' do
+      doc = Nokogiri::XML.parse(File.new(File.join(File.dirname(__FILE__), 'fixtures/standalone/address.xml')))
+      address = Address.from_xml(doc.root)
+      assert_equal '100 Main St.', address.street_address[0]
+      assert_equal 'Apt. 2', address.street_address[1]
+      assert_equal 'Bedford', address.city
+      assert_equal 'MA', address.state_or_province
+      assert_equal '01730', address.zip
+      assert_equal 'USA', address.country
+    end
+    
+    should 'return nil when passed nil to from_xml' do
+      address = Address.from_xml(nil)
+      assert_nil address
+    end
+  end
 end

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:address xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    <core:streetAddress>100 Main St.</core:streetAddress>
+    <core:streetAddress>Apt. 2</core:streetAddress>
+    <core:city>Bedford</core:city>
+    <core:stateOrProvince>MA</core:stateOrProvince>
+    <core:zip>01730</core:zip>
+    <core:country>USA</core:country>
+</core:address>

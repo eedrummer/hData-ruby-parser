@@ -11,6 +11,8 @@ class AdvanceDirectiveTest < Test::Unit::TestCase
       assert_equal '304251008', ad.type.code
       assert_equal 'Resuscitation', ad.free_text_type
       assert_equal 2006, ad.effective_date.high.year
+      assert_equal '425392003', ad.status.code
+      assert_equal 'If you find me dead... don\'t bother with CPR', ad.narrative
     end
   end
 end

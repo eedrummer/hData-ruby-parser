@@ -1,0 +1,28 @@
+<core:organization xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    <core:name>Acme Industries</core:name>
+    <core:pointsOfContact>
+        <core:pointOfContact>
+            <core:name>
+                <core:title>Dr.</core:title>
+                <core:given>Steve</core:given>
+                <core:lastname>Jones</core:lastname>
+            </core:name>
+            <core:address>
+                <core:streetAddress>100 Main St.</core:streetAddress>
+                <core:city>Bedford</core:city>
+                <core:stateOrProvince>MA</core:stateOrProvince>
+                <core:zip>01730</core:zip>
+                <core:country>USA</core:country>
+            </core:address>
+            <core:telecom value="jEiUJa" type="phone-landline" use="other" preferred="false"/>
+        </core:pointOfContact>
+    </core:pointOfContacts>
+    <core:address>
+        <core:streetAddress>100 Main St.</core:streetAddress>
+        <core:streetAddress>Apt. 2</core:streetAddress>
+        <core:city>Bedford</core:city>
+        <core:stateOrProvince>MA</core:stateOrProvince>
+        <core:zip>01730</core:zip>
+        <core:country>USA</core:country>
+    </core:address>
+</core:organization>

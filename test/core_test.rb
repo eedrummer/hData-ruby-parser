@@ -107,4 +107,19 @@ class CoreTest < Test::Unit::TestCase
       assert_nil person
     end
   end
+  
+  context 'An Organization' do
+    should 'create an instance from XML' do
+      doc = Nokogiri::XML.parse(File.new(File.join(File.dirname(__FILE__), 'fixtures/standalone/organization.xml')))
+      organization = Organization.from_xml(doc.root)
+      assert_equal 'Acme Industries', organization.name
+      assert_equal 'Dr.', organization.points_of_contact[0].name.title
+      assert_equal '100 Main St.', organization.address[0].street_address[0]
+    end
+    
+    should 'return nil when passed nil to from_xml' do
+      organization = Organization.from_xml(nil)
+      assert_nil organization
+    end
+  end
 end

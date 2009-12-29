@@ -105,3 +105,15 @@ class Person < CoreHelper
     end
   end
 end
+
+class Organization < CoreHelper
+  attr_accessor :name, :points_of_contact, :address
+  
+  def self.from_xml(element)
+    return_if_element_present(element, Organization.new) do |organization|
+      organization.name = element.at_xpath('core:name').try(:text)
+      organization.points_of_contact = element.xpath('core:pointsOfContact/core:pointOfContact').map {|p| Person.from_xml(p)}
+      organization.address = element.xpath('core:address').map {|a| Address.from_xml(a)}
+    end
+  end
+end

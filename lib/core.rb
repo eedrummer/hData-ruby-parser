@@ -70,3 +70,26 @@ class Address < CoreHelper
     end
   end
 end
+
+class Telecom < CoreHelper
+  attr_accessor :value, :use, :type
+  attr_writer :preferred
+  
+  def preferred?
+    @preferred
+  end
+  
+  def self.from_xml(element)
+    return_if_element_present(element, Telecom.new) do |telecom|
+      telecom.value = element['value']
+      telecom.use = element['use']
+      telecom.type = element['type']
+      preferred = element['preferred']
+      if preferred.eql?('true') || preferred.eql?('1')
+        telecom.preferred = true
+      else
+        telecom.preferred = false
+      end
+    end
+  end
+end

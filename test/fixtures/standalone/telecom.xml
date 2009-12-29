@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:stuff xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    <core:telecom value="+1-781-217-3000" type="phone-landline" use="work" preferred="true"/>
+    <core:telecom value="something@somewhere.com" type="email" use="work" preferred="false"/>
+</core:stuff>

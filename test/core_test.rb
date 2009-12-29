@@ -70,4 +70,26 @@ class CoreTest < Test::Unit::TestCase
       assert_nil address
     end
   end
+  
+  context 'A Telecom' do
+    should 'create an instance from XML' do
+      doc = Nokogiri::XML.parse(File.new(File.join(File.dirname(__FILE__), 'fixtures/standalone/telecom.xml')))
+      telecom = Telecom.from_xml(doc.root.at_xpath('core:telecom[1]'))
+      assert_equal '+1-781-217-3000', telecom.value
+      assert_equal 'phone-landline', telecom.type
+      assert_equal 'work', telecom.use
+      assert telecom.preferred?
+      
+      telecom = Telecom.from_xml(doc.root.at_xpath('core:telecom[2]'))
+      assert_equal 'something@somewhere.com', telecom.value
+      assert_equal 'email', telecom.type
+      assert_equal 'work', telecom.use
+      assert !telecom.preferred?
+    end
+    
+    should 'return nil when passed nil to from_xml' do
+      telecom = Telecom.from_xml(nil)
+      assert_nil telecom
+    end
+  end
 end

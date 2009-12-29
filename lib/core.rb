@@ -117,3 +117,14 @@ class Organization < CoreHelper
     end
   end
 end
+
+class Informant < CoreHelper
+  attr_accessor :contact, :organization
+  
+  def self.from_xml(element)
+    return_if_element_present(element, Informant.new) do |informant|
+      informant.contact = element.xpath('core:contact').map {|p| Person.from_xml(p)}
+      informant.organization = Organization.from_xml(element.at_xpath('core:organization'))
+    end
+  end
+end

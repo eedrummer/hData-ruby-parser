@@ -21,7 +21,7 @@
                 <core:zip>01730</core:zip>
                 <core:country>USA</core:country>
             </core:address>
-            <core:telecom value="+1-781-217-3000" type="phone-landline" use="work" prefered="true"/>
+            <core:telecom value="+1-781-217-3000" type="phone-landline" use="work" preferred="true"/>
         </core:contact>
     </ad:custodianOfTheDocument>
     <ad:status code="425392003" codeSystem="2.16.840.1.113883.1.11.20.1" codeSystemName="AdvanceDirectiveStatusCode"
@@ -39,7 +39,7 @@
                 <core:zip>01730</core:zip>
                 <core:country>USA</core:country>
             </core:address>
-            <core:telecom value="+1-781-217-3000" type="phone-landline" use="work" prefered="true"/>
+            <core:telecom value="+1-781-217-3000" type="phone-landline" use="work" preferred="true"/>
         </core:contact>
     </ad:informationSource>
     <ad:narrative>If you find me dead... don't bother with CPR</ad:narrative>

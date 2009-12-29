@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:person xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    <core:name>
+        <core:title>Dr.</core:title>
+        <core:given>Steve</core:given>
+        <core:lastname>Jones</core:lastname>
+    </core:name>
+    <core:address>
+        <core:streetAddress>100 Main St.</core:streetAddress>
+        <core:city>Bedford</core:city>
+        <core:stateOrProvince>MA</core:stateOrProvince>
+        <core:zip>01730</core:zip>
+        <core:country>USA</core:country>
+    </core:address>
+    <core:telecom value="+1-781-217-3000" type="phone-landline" use="work" preferred="true"/>
+</core:person>

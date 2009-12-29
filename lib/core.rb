@@ -93,3 +93,15 @@ class Telecom < CoreHelper
     end
   end
 end
+
+class Person < CoreHelper
+  attr_accessor :name, :address, :telecom
+  
+  def self.from_xml(element)
+    return_if_element_present(element, Person.new) do |person|
+      person.name = Name.from_xml(element.at_xpath('core:name'))
+      person.address = element.xpath('core:address').map {|a| Address.from_xml(a)}
+      person.telecom = element.xpath('core:telecom').map {|t| Telecom.from_xml(t)}
+    end
+  end
+end

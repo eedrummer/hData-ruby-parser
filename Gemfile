@@ -7,4 +7,12 @@ only :test do
   gem 'fakeweb'
 end
 
+only :metrics do
+  gem 'metric_fu'
+  gem 'reek'
+  gem 'roodi'
+  gem 'topfunky-gruff'
+  gem 'rmagick
+end
+
 source "http://gems.github.com"

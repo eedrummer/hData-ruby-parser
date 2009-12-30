@@ -1,4 +1,6 @@
 class SectionBase
+  attr_accessor :information_source, :narrative
+  
   # Adds a namespace and prefix to Nokogiri, also used
   # to record the main namespace of an hData section
   def self.section_namespace(prefix, uri)
@@ -23,6 +25,11 @@ class SectionBase
       root_element.add_namespace_definition(ns_hash[:prefix], ns_hash[:uri])
     end
     
-    create_object(root_element)
+    obj = create_object(root_element)
+    
+    obj.information_source = root_element.xpath("#{@section_namespace_prefix}:informationSource").map {|i| Informant.from_xml(i)}
+    obj.narrative = root_element.at_xpath("#{@section_namespace_prefix}:narrative").try(:text)
+    
+    obj
   end
 end

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allergy xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core"
+ xmlns="http://projecthdata.org/hdata/schemas/2009/06/allergy">
+    <adverseEventDate high="2006-05-04T18:13:51.0Z" low="2006-05-04T18:13:51.0Z"/>
+    <adverseEventType code="420134006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="propensity to adverse reactions"/>
+    <product code="code3" displayName="displayName3" codeSystemName="UNII" codeSystem="2.16.840.1.113883.4.9"/>
+    <reaction code="code5" displayName="displayName5" codeSystemName="SNOMED CT" codeSystem="2.16.840.1.113883.6.96"/>
+    <severity code="255604002" displayName="Mild" codeSystemName="SNOMED CT" codeSystem="2.16.840.1.113883.6.96"/>
+    <alertStatus code="55561003" displayName="Active" codeSystemName="SNOMED CT" codeSystem="2.16.840.1.113883.6.96"/>
+    <narrative>Allergic to bee stings</narrative>
+</allergy>

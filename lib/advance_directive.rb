@@ -2,7 +2,7 @@ class AdvanceDirective < SectionBase
   section_namespace 'ad', 'http://projecthdata.org/hdata/schemas/2009/06/advance_directive'
   namespace 'core', 'http://projecthdata.org/hdata/schemas/2009/06/core'
   
-  attr_accessor :type, :free_text_type, :effective_date, :custodian_of_the_document, :status, :information_source, :narrative
+  attr_accessor :type, :free_text_type, :effective_date, :custodian_of_the_document, :status
   
   def self.create_object(root)
     ad = AdvanceDirective.new
@@ -11,9 +11,7 @@ class AdvanceDirective < SectionBase
     ad.effective_date = DateRange.from_xml(root.at_xpath('ad:effectiveDate'))
     ad.custodian_of_the_document = Informant.from_xml(root.at_xpath('ad:custodianOfTheDocument'))
     ad.status = CodedValue.from_xml(root.at_xpath('ad:status'))
-    ad.information_source = root.xpath('ad:informationSource').map {|i| Informant.from_xml(i)}
-    ad.narrative = root.at_xpath('ad:narrative').try(:text)
-    
+        
     ad
   end
 end

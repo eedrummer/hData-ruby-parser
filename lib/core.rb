@@ -14,7 +14,7 @@ class CoreHelper
   def attributes_to_element(builder, element_name, attributes)
     element_attributes = {}
     attributes.each do |attr|
-      element_attributes[attr] = self.send(attr)
+      element_attributes[attr.to_s.camelcase(:lower)] = self.send(attr)
     end
     # remove keys that have nil values
     element_attributes = element_attributes.delete_if {|k, v| v.nil?}

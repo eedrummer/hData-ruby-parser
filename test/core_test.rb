@@ -26,7 +26,7 @@ class CoreTest < Test::Unit::TestCase
       cv.code_system = '1234'
       
       builder = mock()
-      builder.expects('tag!').with(:splat, {:code => 'red', :code_system => '1234'})
+      builder.expects('tag!').with(:splat, {'code' => 'red', 'codeSystem' => '1234'})
       cv.to_element(builder, :splat)
     end
   end

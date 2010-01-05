@@ -10,6 +10,16 @@ class CoreHelper
       nil
     end
   end
+  
+  def attributes_to_element(builder, element_name, attributes)
+    element_attributes = {}
+    attributes.each do |attr|
+      element_attributes[attr] = self.send(attr)
+    end
+    # remove keys that have nil values
+    element_attributes = element_attributes.delete_if {|k, v| v.nil?}
+    builder.tag!(element_name, element_attributes)
+  end
 end
 
 class CodedValue < CoreHelper
@@ -23,6 +33,10 @@ class CodedValue < CoreHelper
       cv.code_system = element['codeSystem']
       cv.code_system_name = element['codeSystemName']
     end
+  end
+  
+  def to_element(builder, element_name = :codedValue)
+    attributes_to_element(builder, element_name, [:code, :display_name, :version, :code_system, :code_system_name])
   end
 end
 

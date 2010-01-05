@@ -19,6 +19,16 @@ class CoreTest < Test::Unit::TestCase
       cv = CodedValue.from_xml(nil)
       assert_nil cv
     end
+    
+    should 'serialize itself to an element' do
+      cv = CodedValue.new
+      cv.code = 'red'
+      cv.code_system = '1234'
+      
+      builder = mock()
+      builder.expects('tag!').with(:splat, {:code => 'red', :code_system => '1234'})
+      cv.to_element(builder, :splat)
+    end
   end
   
   context 'A DateRange' do

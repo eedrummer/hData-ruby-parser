@@ -5,6 +5,7 @@ gem 'activesupport', :require_as => 'active_support'
 only :test do
   gem 'thoughtbot-shoulda', :require_as => 'shoulda'
   gem 'fakeweb'
+  gem 'mocha'
 end
 
 only :metrics do

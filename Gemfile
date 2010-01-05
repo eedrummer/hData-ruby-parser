@@ -12,7 +12,7 @@ only :metrics do
   gem 'reek'
   gem 'roodi'
   gem 'topfunky-gruff'
-  gem 'rmagick
+  gem 'rmagick'
 end
 
 source "http://gems.github.com"

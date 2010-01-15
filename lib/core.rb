@@ -56,6 +56,10 @@ class DateRange < CoreHelper
       end
     end
   end
+  
+  def to_element(builder, element_name = :dateRage)
+    attributes_to_element(builder, element_name, [:high, :low])
+  end
 end
 
 class Name < CoreHelper
@@ -67,6 +71,12 @@ class Name < CoreHelper
       name.given = element.xpath('core:given').map {|given| given.text}
       name.lastname = element.at_xpath('core:lastname').try(:text)
       name.suffix = element.at_xpath('core:suffix').try(:text)
+    end
+  end
+  
+  def to_element(builder)
+    builder.core :name do |name|
+      [:title, :given, :lastname, :suffix].each {|attr| name.core attr send(attr) if send(attr)}
     end
   end
 end
@@ -81,6 +91,18 @@ class Address < CoreHelper
       address.state_or_province = element.at_xpath('core:stateOrProvince').try(:text)
       address.zip = element.at_xpath('core:zip').try(:text)
       address.country = element.at_xpath('core:country').try(:text)
+    end
+  end
+  
+  def to_element(builder)
+    builder.core :address do |address|
+      street_address.each do |sa|
+        address.core :street_address sa
+      end
+      address.core :city city if city
+      address.core :stateOrProvince state_or_province if state_or_province
+      address.core :zip zip if zip
+      address.core :country country if country
     end
   end
 end
@@ -106,6 +128,7 @@ class Telecom < CoreHelper
       end
     end
   end
+  
 end
 
 class Person < CoreHelper

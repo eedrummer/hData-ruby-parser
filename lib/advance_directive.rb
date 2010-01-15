@@ -20,6 +20,8 @@ class AdvanceDirective < SectionBase
 
     builder.advanceDirective(AdvanceDirective.namespace_hash) do |ad|
       type.to_element(ad, :type) if type
+      ad.freeTextType(free_text_type) if free_text_type
+      effective_date.to_element(ad, :effectiveDate) if effective_date
     end
   end
 end
